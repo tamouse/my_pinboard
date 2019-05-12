@@ -1,0 +1,10 @@
+{
+  "name": "my_pinboard",
+  "version": "0.1.0",
+  "description": "My Pinboard replacement",
+  "main": "index.js",
+  "repository": "git@github.com:tamouse/my_pinboard.git",
+  "author": "Tamara Temple <tamouse@gmail.com> (https://github.com/tamouse)",
+  "license": "MIT",
+  "private": true
+}
