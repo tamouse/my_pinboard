@@ -1,5 +1,58 @@
 # my pinboard replacement
 
+A replacement for pinboard, tailored to my personal needs.
+
+
+## Bookmarklets
+
+This will need a bookmarklet to pop open the new / edit form so I can fill in additional fields.
+
+This is sort of a canonical bookmarklet:
+
+``` javascript
+javascript:
+u = location.href
+s = document.getSelection()
+t = document.title
+mypb = `http://localhost:3000`
+void open(
+  `${mypb}/new?u=${u}&d=${d}&t=${t}`,
+  "MyPins",
+  `toolbar=no,width=800,height=900`
+)
+```
+
+The bookmarklet will get compressed and encoded so it can sit in a bookmark in the browser.
+
+## Structural Changes
+
+- created `app/javascript/src/` where all *actual* code goes, with the following subdirectories:
+  - `components` - basic React components that can be used or reused around the app
+  - `lib` - utilities and services, things that aren't react-ish
+  - `hooks` - react hooks
+  - `views` - React "page" level components
+    - `Users` - replacing some devise views with React components
+
+- components in `app/javascript/components/` are *thin* shells that import the desired component out of `../src/` and export it as default
+
+## Future Directions
+
+So far, I'm rolling on individual `react_component` components, popping them into the views.
+
+Eventually, I'd like to redo this with a single `App` component.
+
+Convert the `gon` structure into a react context. Only use so far is for flash output from Devise. I want to be able to reuse the `FlashDisplay` component for both `gon.flash` and internal app flash messages.
+
+Wind in more formatting as needed.
+
+Restrict signups. I don't want to support the world. There's a wiki page on Devise that talks about having a single user.
+
+Add tests, linting, prettier rules.
+
+
+
+## Commentary from the `rails new` template
+
 New rails app created with template.
 
 
@@ -62,4 +115,3 @@ Added apollo client libraries to `package.json`:
 - `graphql` for creating query documents
 
 See the [apollo client docs](https://www.apollographql.com/docs/react/) for more info on using apollo client
-
