@@ -1,3 +1,3 @@
-import { HorizontalFieldInput } from "./HorizontalFieldInput"
+import HorizontalFieldInput from "./HorizontalFieldInput"
 
 export { HorizontalFieldInput }

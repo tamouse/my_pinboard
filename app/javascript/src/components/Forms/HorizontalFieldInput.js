@@ -1,8 +1,8 @@
-import React, { useState, useEffect, createRef } from "react"
+import React, { forwardRef, useState, useEffect, createRef } from "react"
 import T from "prop-types"
 import styled from "styled-components"
 
-export function HorizontalFieldInput(props) {
+const HorizontalFieldInput = forwardRef((props, ref) => {
   const {
     fieldLabel,
     fieldName,
@@ -23,11 +23,12 @@ export function HorizontalFieldInput(props) {
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, "-")}
         name={fieldName}
+        ref={ref}
         {...controlProps}
       />
     </HorizontalContainer>
   )
-}
+})
 HorizontalFieldInput.propTypes = {
   fieldLabel: T.string.isRequired,
   fieldName: T.string.isRequired,
@@ -38,6 +39,7 @@ HorizontalFieldInput.defaultProps = {
   fieldType: "text",
   fieldValue: "",
 }
+export default HorizontalFieldInput
 
 const HorizontalContainer = styled.div`
   diplay: flex;

@@ -1,13 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Container } from "../styles"
 
 export const DisplayUser = ({ user }) => (
-  <div>
-    <span>User: </span>
+  <Container>
+    <h2>Current User: </h2>
     <pre>
       <code>{JSON.stringify(user, {}, 2)}</code>
     </pre>
-  </div>
+  </Container>
 )
 
 DisplayUser.propTypes = {

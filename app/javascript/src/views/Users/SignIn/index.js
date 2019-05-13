@@ -1,4 +1,4 @@
-import React from "react"
+import React, { createRef, useRef, useEffect, useState } from "react"
 import T from "prop-types"
 import * as S from "./style"
 import { Container, PageTitle, ButtonPrimary } from "../../../styles"
@@ -6,11 +6,19 @@ import { useFormFields } from "../../../hooks"
 import { getCSRFToken } from "../../../lib"
 import { HorizontalFieldInput } from "../../../components/Forms"
 
-/**
- * SignIn
- */
 export const SignIn = props => {
   const { values, handleChange } = useFormFields()
+  const usernameRef = useRef(null)
+
+  const [first, setFirst] = useState(true)
+
+  useEffect(() => {
+    if (first && usernameRef.current) {
+      setFirst(false)
+      usernameRef.current.focus()
+    }
+  })
+
   return (
     <Container>
       <PageTitle>Log in</PageTitle>
@@ -23,6 +31,7 @@ export const SignIn = props => {
           fieldValue={values["user[username]"]}
           autoComplete="username"
           onChange={handleChange}
+          ref={usernameRef}
         />
         <HorizontalFieldInput
           fieldLabel="password"
