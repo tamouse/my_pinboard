@@ -9,15 +9,17 @@ import { HorizontalFieldInput } from "../../../components/Forms"
 export const SignIn = props => {
   const { values, handleChange } = useFormFields()
   const usernameRef = useRef(null)
-
-  const [first, setFirst] = useState(true)
-
   useEffect(() => {
-    if (first && usernameRef.current) {
-      setFirst(false)
+    if (usernameRef.current) {
       usernameRef.current.focus()
     }
-  })
+  }, []) // note that last empty array is magic.
+
+  // NOTE: According to
+  // https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies
+  // normally you'd want to list the dependencies that might be
+  // changing, HOWEVER, refs are different; I *really* only want to
+  // run this hook but once.
 
   return (
     <Container>
