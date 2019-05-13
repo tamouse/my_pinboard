@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyPinboard</title>
+    <%= csrf_meta_tags %>
+    <%= Gon::Base.render_data %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <style media="screen">
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%= react_component("FlashDisplay") %>
+    <%= yield %>
+    <%= react_component("SignOut", is_user_signed_in: user_signed_in?) %>
+  </body>
+</html>
