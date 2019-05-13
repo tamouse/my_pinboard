@@ -49,3 +49,4 @@ gem 'webpacker'
 gem 'react-rails'
 
 gem 'gon' # puts Ruby data on view as a JavaScript object. See https://github.com/gazay/gon
+gem 'i18n-js' # get translations down to JavaScript

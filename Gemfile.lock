@@ -82,6 +82,8 @@ GEM
     graphql (1.9.4)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    i18n-js (3.2.2)
+      i18n (>= 0.6.6)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -203,6 +205,7 @@ DEPENDENCIES
   gon
   graphiql-rails
   graphql
+  i18n-js
   kaminari
   pg (>= 0.18, < 2.0)
   pry-byebug
