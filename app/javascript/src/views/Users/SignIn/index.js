@@ -1,6 +1,5 @@
-import React, { createRef, useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect } from "react"
 import T from "prop-types"
-import * as S from "./style"
 import { Container, PageTitle, ButtonPrimary } from "../../../styles"
 import { useFormFields } from "../../../hooks"
 import { getCSRFToken } from "../../../lib"
